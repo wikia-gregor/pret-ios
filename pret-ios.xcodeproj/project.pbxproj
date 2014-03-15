@@ -7,11 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B6265E618D47C0100A8ED62 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6265DD18D47C0100A8ED62 /* AudioToolbox.framework */; };
+		3B6265E718D47C0100A8ED62 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6265DE18D47C0100A8ED62 /* CFNetwork.framework */; };
+		3B6265E818D47C0100A8ED62 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6265DF18D47C0100A8ED62 /* CoreLocation.framework */; };
+		3B6265E918D47C0100A8ED62 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6265E018D47C0100A8ED62 /* libz.dylib */; };
+		3B6265EA18D47C0100A8ED62 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6265E118D47C0100A8ED62 /* MobileCoreServices.framework */; };
+		3B6265EB18D47C0100A8ED62 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6265E218D47C0100A8ED62 /* QuartzCore.framework */; };
+		3B6265EC18D47C0100A8ED62 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6265E318D47C0100A8ED62 /* Security.framework */; };
+		3B6265ED18D47C0100A8ED62 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6265E418D47C0100A8ED62 /* StoreKit.framework */; };
+		3B6265EE18D47C0100A8ED62 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6265E518D47C0100A8ED62 /* SystemConfiguration.framework */; };
 		3BE8705E18D4759B006131B5 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE8705D18D4759B006131B5 /* Parse.framework */; };
 		3BE8705F18D4759C006131B5 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE8705D18D4759B006131B5 /* Parse.framework */; };
 		6BE4608B6F1AABC3736E5107 /* PRETAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE46A69A8185BAB75ABC3E6 /* PRETAppDelegate.m */; };
 		6BE462D1EA8E0C71A082C3A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BE469982648A857F4C8002A /* Images.xcassets */; };
+		6BE463537A4764961EB2F9B8 /* UIColor+WikiaColorTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE46F963CECDFADDD36FBD4 /* UIColor+WikiaColorTools.m */; };
 		6BE4636D8C5620A548ECA839 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE46FAB945B83B383AE1D54 /* CoreGraphics.framework */; };
+		6BE46398557C67F6ABCB5BF2 /* PRETHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE468C8A0B160D266704742 /* PRETHomeViewController.m */; };
 		6BE463DC3B6E4629EB287B38 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE468C9A8484322E55F4F5B /* main.m */; };
 		6BE4660A56AC17B547EBEC68 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6BE466BFB25C2BC200C54445 /* InfoPlist.strings */; };
 		6BE466BA0A173C91FDCEB082 /* PRETTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE464F64ED478E34B212F07 /* PRETTests.m */; };
@@ -20,7 +31,10 @@
 		6BE4688249C6238C12947748 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE46A828D2968CF2100D39E /* XCTest.framework */; };
 		6BE468C5C29629BEC7FAB875 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE465954108B29C4A8326A8 /* UIKit.framework */; };
 		6BE46BC4469A8949B8D6789B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE46D95C89D8038CB65B192 /* Foundation.framework */; };
+		6BE46BC55F98D7E01A22607A /* PRETAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE466CAF2E4C6FA58877CC8 /* PRETAboutViewController.m */; };
+		6BE46DFCFBADC9E3322ACF0B /* PRETHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE460C05366518B2B545E3E /* PRETHomeView.m */; };
 		6BE46F7BC92437226A8BEAE7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE46D95C89D8038CB65B192 /* Foundation.framework */; };
+		6BE46F94AF48CB08D9154EAD /* PRETAboutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE46BC5699811C9C2DF1592 /* PRETAboutView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,22 +48,41 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B6265DD18D47C0100A8ED62 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		3B6265DE18D47C0100A8ED62 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		3B6265DF18D47C0100A8ED62 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3B6265E018D47C0100A8ED62 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		3B6265E118D47C0100A8ED62 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		3B6265E218D47C0100A8ED62 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3B6265E318D47C0100A8ED62 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		3B6265E418D47C0100A8ED62 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		3B6265E518D47C0100A8ED62 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3BE8705D18D4759B006131B5 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		6BE460C05366518B2B545E3E /* PRETHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRETHomeView.m; sourceTree = "<group>"; };
 		6BE462C5DE319B706250E645 /* PRET-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "PRET-Info.plist"; sourceTree = "<group>"; };
+		6BE464EC45D4FFC272BDA55D /* PRETAboutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRETAboutView.h; sourceTree = "<group>"; };
 		6BE464F5E443F36415074FC3 /* PRETTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PRETTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BE464F64ED478E34B212F07 /* PRETTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRETTests.m; sourceTree = "<group>"; };
 		6BE46566917C58919D20DD22 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6BE465954108B29C4A8326A8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		6BE465F113BFFE3C43FD516B /* PRETAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRETAboutViewController.h; sourceTree = "<group>"; };
 		6BE4664BEC34B42B3A3A5BB3 /* PRETAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRETAppDelegate.h; sourceTree = "<group>"; };
+		6BE466CAF2E4C6FA58877CC8 /* PRETAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRETAboutViewController.m; sourceTree = "<group>"; };
+		6BE468C8A0B160D266704742 /* PRETHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRETHomeViewController.m; sourceTree = "<group>"; };
 		6BE468C9A8484322E55F4F5B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6BE469982648A857F4C8002A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6BE469F8FF0FFA2FD5026CF6 /* UIColor+WikiaColorTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+WikiaColorTools.h"; sourceTree = "<group>"; };
 		6BE46A69A8185BAB75ABC3E6 /* PRETAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRETAppDelegate.m; sourceTree = "<group>"; };
 		6BE46A828D2968CF2100D39E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		6BE46AC1D781D56CA5974B8C /* PRETHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRETHomeViewController.h; sourceTree = "<group>"; };
+		6BE46BC5699811C9C2DF1592 /* PRETAboutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRETAboutView.m; sourceTree = "<group>"; };
 		6BE46CEF27E0B011E8D29256 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6BE46D95C89D8038CB65B192 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6BE46DCBBF2D4421A761F6AE /* PRETTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "PRETTests-Info.plist"; sourceTree = "<group>"; };
+		6BE46E148C4AA5CF657A5DE1 /* PRETHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRETHomeView.h; sourceTree = "<group>"; };
 		6BE46EEB343B0DEE4092AB36 /* PRET-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PRET-Prefix.pch"; sourceTree = "<group>"; };
 		6BE46F089BC65BFEEB1281F7 /* PRET.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PRET.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BE46F963CECDFADDD36FBD4 /* UIColor+WikiaColorTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+WikiaColorTools.m"; sourceTree = "<group>"; };
 		6BE46FAB945B83B383AE1D54 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -58,8 +91,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BE46F7BC92437226A8BEAE7 /* Foundation.framework in Frameworks */,
+				3B6265E618D47C0100A8ED62 /* AudioToolbox.framework in Frameworks */,
+				3B6265E718D47C0100A8ED62 /* CFNetwork.framework in Frameworks */,
+				3B6265E818D47C0100A8ED62 /* CoreLocation.framework in Frameworks */,
+				3B6265E918D47C0100A8ED62 /* libz.dylib in Frameworks */,
+				3B6265EA18D47C0100A8ED62 /* MobileCoreServices.framework in Frameworks */,
+				3B6265EB18D47C0100A8ED62 /* QuartzCore.framework in Frameworks */,
+				3B6265EC18D47C0100A8ED62 /* Security.framework in Frameworks */,
+				3B6265ED18D47C0100A8ED62 /* StoreKit.framework in Frameworks */,
+				3B6265EE18D47C0100A8ED62 /* SystemConfiguration.framework in Frameworks */,
 				6BE4636D8C5620A548ECA839 /* CoreGraphics.framework in Frameworks */,
+				6BE46F7BC92437226A8BEAE7 /* Foundation.framework in Frameworks */,
 				3BE8705E18D4759B006131B5 /* Parse.framework in Frameworks */,
 				6BE4679E748FF44974DF25B0 /* UIKit.framework in Frameworks */,
 			);
@@ -79,6 +121,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6BE4626CAF541ADF902DBF26 /* vendors */ = {
+			isa = PBXGroup;
+			children = (
+				6BE469F8FF0FFA2FD5026CF6 /* UIColor+WikiaColorTools.h */,
+				6BE46F963CECDFADDD36FBD4 /* UIColor+WikiaColorTools.m */,
+			);
+			path = vendors;
+			sourceTree = "<group>";
+		};
 		6BE463BB21F7635FA9DC4DB7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,9 +148,29 @@
 			path = PRETTests;
 			sourceTree = "<group>";
 		};
+		6BE465F009F379CC1CADE6F5 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				6BE468C8A0B160D266704742 /* PRETHomeViewController.m */,
+				6BE46AC1D781D56CA5974B8C /* PRETHomeViewController.h */,
+				6BE460C05366518B2B545E3E /* PRETHomeView.m */,
+				6BE46E148C4AA5CF657A5DE1 /* PRETHomeView.h */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
 		6BE466068AC0E8906A17A33E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3B6265DD18D47C0100A8ED62 /* AudioToolbox.framework */,
+				3B6265DE18D47C0100A8ED62 /* CFNetwork.framework */,
+				3B6265DF18D47C0100A8ED62 /* CoreLocation.framework */,
+				3B6265E018D47C0100A8ED62 /* libz.dylib */,
+				3B6265E118D47C0100A8ED62 /* MobileCoreServices.framework */,
+				3B6265E218D47C0100A8ED62 /* QuartzCore.framework */,
+				3B6265E318D47C0100A8ED62 /* Security.framework */,
+				3B6265E418D47C0100A8ED62 /* StoreKit.framework */,
+				3B6265E518D47C0100A8ED62 /* SystemConfiguration.framework */,
 				3BE8705D18D4759B006131B5 /* Parse.framework */,
 				6BE46D95C89D8038CB65B192 /* Foundation.framework */,
 				6BE46FAB945B83B383AE1D54 /* CoreGraphics.framework */,
@@ -146,8 +217,30 @@
 				6BE4664BEC34B42B3A3A5BB3 /* PRETAppDelegate.h */,
 				6BE46A69A8185BAB75ABC3E6 /* PRETAppDelegate.m */,
 				6BE469982648A857F4C8002A /* Images.xcassets */,
+				6BE465F009F379CC1CADE6F5 /* home */,
+				6BE46D3CDB7564C3B4A911D7 /* about */,
+				6BE46EF9D9367E3530C221DF /* Model */,
+				6BE4626CAF541ADF902DBF26 /* vendors */,
 			);
 			path = "pret-ios";
+			sourceTree = "<group>";
+		};
+		6BE46D3CDB7564C3B4A911D7 /* about */ = {
+			isa = PBXGroup;
+			children = (
+				6BE466CAF2E4C6FA58877CC8 /* PRETAboutViewController.m */,
+				6BE465F113BFFE3C43FD516B /* PRETAboutViewController.h */,
+				6BE46BC5699811C9C2DF1592 /* PRETAboutView.m */,
+				6BE464EC45D4FFC272BDA55D /* PRETAboutView.h */,
+			);
+			path = about;
+			sourceTree = "<group>";
+		};
+		6BE46EF9D9367E3530C221DF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +342,11 @@
 			files = (
 				6BE463DC3B6E4629EB287B38 /* main.m in Sources */,
 				6BE4608B6F1AABC3736E5107 /* PRETAppDelegate.m in Sources */,
+				6BE46398557C67F6ABCB5BF2 /* PRETHomeViewController.m in Sources */,
+				6BE46DFCFBADC9E3322ACF0B /* PRETHomeView.m in Sources */,
+				6BE46BC55F98D7E01A22607A /* PRETAboutViewController.m in Sources */,
+				6BE46F94AF48CB08D9154EAD /* PRETAboutView.m in Sources */,
+				6BE463537A4764961EB2F9B8 /* UIColor+WikiaColorTools.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +440,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "pret-ios/PRET-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/pret-ios/PRET-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -413,6 +512,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "pret-ios/PRET-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/pret-ios/PRET-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

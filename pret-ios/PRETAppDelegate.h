@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class PRETHomeViewController;
+
 @interface PRETAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong) UINavigationController *navigationController;
+@property (nonatomic, strong) PRETHomeViewController *homeViewController;
 
 @end

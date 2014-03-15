@@ -7,15 +7,31 @@
 //
 
 #import "PRETAppDelegate.h"
+#import "PRETHomeViewController.h"
+#import "Parse/Parse.h"
 
 @implementation PRETAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+
+    // Authorize in Parse
+    [Parse setApplicationId:@"5bPOC1kbVMfqqw7QbW1SUH1YwZqbkLhbZziuaxmM"
+                  clientKey:@"GI9xyrYsM2TaSvQaKBR0glpm2Ym8fNcNhNiVuMXM"];
+
+    // Build Root ViewController
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.homeViewController];
+
+    // Setup NavigationBarController
+//    self.navigationBarController = [[PRETNavigationBarController alloc] initWithNavigationController:self.homeViewController];
+
+    // Create window
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = self.navigationController;
+
+    // Rock & Roll!
     [self.window makeKeyAndVisible];
+
     return YES;
 }
 
@@ -49,6 +65,16 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 
+}
+
+#pragma mark - Getters
+- (PRETHomeViewController *)homeViewController {
+    if (_homeViewController == nil) {
+        _homeViewController = [[PRETHomeViewController alloc] initWithNibName:nil bundle:nil];
+
+    }
+
+    return _homeViewController;
 }
 
 @end
