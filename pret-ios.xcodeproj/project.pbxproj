@@ -16,6 +16,7 @@
 		3B6265EC18D47C0100A8ED62 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6265E318D47C0100A8ED62 /* Security.framework */; };
 		3B6265ED18D47C0100A8ED62 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6265E418D47C0100A8ED62 /* StoreKit.framework */; };
 		3B6265EE18D47C0100A8ED62 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6265E518D47C0100A8ED62 /* SystemConfiguration.framework */; };
+		3B6265F218D4DB4700A8ED62 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6265F118D4DB4700A8ED62 /* FacebookSDK.framework */; };
 		3BE8705E18D4759B006131B5 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE8705D18D4759B006131B5 /* Parse.framework */; };
 		3BE8705F18D4759C006131B5 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE8705D18D4759B006131B5 /* Parse.framework */; };
 		6BE4608B6F1AABC3736E5107 /* PRETAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE46A69A8185BAB75ABC3E6 /* PRETAppDelegate.m */; };
@@ -25,6 +26,7 @@
 		6BE46398557C67F6ABCB5BF2 /* PRETHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE468C8A0B160D266704742 /* PRETHomeViewController.m */; };
 		6BE463DC3B6E4629EB287B38 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE468C9A8484322E55F4F5B /* main.m */; };
 		6BE4660A56AC17B547EBEC68 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6BE466BFB25C2BC200C54445 /* InfoPlist.strings */; };
+		6BE466362F57DD3C346FA3F7 /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE46D16F3E09089AAE1E65F /* MKMapView+ZoomLevel.m */; };
 		6BE466BA0A173C91FDCEB082 /* PRETTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE464F64ED478E34B212F07 /* PRETTests.m */; };
 		6BE46722F2FA05617EDFB182 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6BE4666746AD852819A37D47 /* InfoPlist.strings */; };
 		6BE4679E748FF44974DF25B0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE465954108B29C4A8326A8 /* UIKit.framework */; };
@@ -35,6 +37,7 @@
 		6BE46DFCFBADC9E3322ACF0B /* PRETHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE460C05366518B2B545E3E /* PRETHomeView.m */; };
 		6BE46F7BC92437226A8BEAE7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE46D95C89D8038CB65B192 /* Foundation.framework */; };
 		6BE46F94AF48CB08D9154EAD /* PRETAboutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE46BC5699811C9C2DF1592 /* PRETAboutView.m */; };
+		6F3FEC38724148C4805B4F06 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C9569BB2194B08B962B2D6 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,9 +60,12 @@
 		3B6265E318D47C0100A8ED62 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		3B6265E418D47C0100A8ED62 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3B6265E518D47C0100A8ED62 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3B6265EF18D4D8F000A8ED62 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		3B6265F118D4DB4700A8ED62 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		3BE8705D18D4759B006131B5 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		6BE460C05366518B2B545E3E /* PRETHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRETHomeView.m; sourceTree = "<group>"; };
 		6BE462C5DE319B706250E645 /* PRET-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "PRET-Info.plist"; sourceTree = "<group>"; };
+		6BE46437168D40432ACA6143 /* MKMapView+ZoomLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+ZoomLevel.h"; sourceTree = "<group>"; };
 		6BE464EC45D4FFC272BDA55D /* PRETAboutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRETAboutView.h; sourceTree = "<group>"; };
 		6BE464F5E443F36415074FC3 /* PRETTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PRETTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BE464F64ED478E34B212F07 /* PRETTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRETTests.m; sourceTree = "<group>"; };
@@ -77,6 +83,7 @@
 		6BE46AC1D781D56CA5974B8C /* PRETHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRETHomeViewController.h; sourceTree = "<group>"; };
 		6BE46BC5699811C9C2DF1592 /* PRETAboutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRETAboutView.m; sourceTree = "<group>"; };
 		6BE46CEF27E0B011E8D29256 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6BE46D16F3E09089AAE1E65F /* MKMapView+ZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ZoomLevel.m"; sourceTree = "<group>"; };
 		6BE46D95C89D8038CB65B192 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6BE46DCBBF2D4421A761F6AE /* PRETTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "PRETTests-Info.plist"; sourceTree = "<group>"; };
 		6BE46E148C4AA5CF657A5DE1 /* PRETHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRETHomeView.h; sourceTree = "<group>"; };
@@ -84,6 +91,8 @@
 		6BE46F089BC65BFEEB1281F7 /* PRET.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PRET.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BE46F963CECDFADDD36FBD4 /* UIColor+WikiaColorTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+WikiaColorTools.m"; sourceTree = "<group>"; };
 		6BE46FAB945B83B383AE1D54 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		79C80B788191424FA5754935 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		B4C9569BB2194B08B962B2D6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,8 +111,10 @@
 				3B6265EE18D47C0100A8ED62 /* SystemConfiguration.framework in Frameworks */,
 				6BE4636D8C5620A548ECA839 /* CoreGraphics.framework in Frameworks */,
 				6BE46F7BC92437226A8BEAE7 /* Foundation.framework in Frameworks */,
+				3B6265F218D4DB4700A8ED62 /* FacebookSDK.framework in Frameworks */,
 				3BE8705E18D4759B006131B5 /* Parse.framework in Frameworks */,
 				6BE4679E748FF44974DF25B0 /* UIKit.framework in Frameworks */,
+				6F3FEC38724148C4805B4F06 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +137,8 @@
 			children = (
 				6BE469F8FF0FFA2FD5026CF6 /* UIColor+WikiaColorTools.h */,
 				6BE46F963CECDFADDD36FBD4 /* UIColor+WikiaColorTools.m */,
+				6BE46D16F3E09089AAE1E65F /* MKMapView+ZoomLevel.m */,
+				6BE46437168D40432ACA6143 /* MKMapView+ZoomLevel.h */,
 			);
 			path = vendors;
 			sourceTree = "<group>";
@@ -162,6 +175,8 @@
 		6BE466068AC0E8906A17A33E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3B6265F118D4DB4700A8ED62 /* FacebookSDK.framework */,
+				3B6265EF18D4D8F000A8ED62 /* Social.framework */,
 				3B6265DD18D47C0100A8ED62 /* AudioToolbox.framework */,
 				3B6265DE18D47C0100A8ED62 /* CFNetwork.framework */,
 				3B6265DF18D47C0100A8ED62 /* CoreLocation.framework */,
@@ -176,6 +191,7 @@
 				6BE46FAB945B83B383AE1D54 /* CoreGraphics.framework */,
 				6BE465954108B29C4A8326A8 /* UIKit.framework */,
 				6BE46A828D2968CF2100D39E /* XCTest.framework */,
+				B4C9569BB2194B08B962B2D6 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -187,6 +203,7 @@
 				6BE466068AC0E8906A17A33E /* Frameworks */,
 				6BE46C0FD542ED56999F8A78 /* pret-ios */,
 				6BE463EB251F77A4E54E570A /* PRETTests */,
+				79C80B788191424FA5754935 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -250,9 +267,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6BE4639127A1843DCC960F4A /* Build configuration list for PBXNativeTarget "PRET" */;
 			buildPhases = (
+				FDB9F1601125439F9308CB70 /* Check Pods Manifest.lock */,
 				6BE46320AEC8647192A839D3 /* Sources */,
 				6BE46464126A87D02E32071E /* Frameworks */,
 				6BE46D66211700598D153E14 /* Resources */,
+				95980D891A5A40B188F2A356 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -327,6 +346,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		95980D891A5A40B188F2A356 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FDB9F1601125439F9308CB70 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6BE461E650F09F0046713B95 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -347,6 +399,7 @@
 				6BE46BC55F98D7E01A22607A /* PRETAboutViewController.m in Sources */,
 				6BE46F94AF48CB08D9154EAD /* PRETAboutView.m in Sources */,
 				6BE463537A4764961EB2F9B8 /* UIColor+WikiaColorTools.m in Sources */,
+				6BE466362F57DD3C346FA3F7 /* MKMapView+ZoomLevel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +484,7 @@
 		};
 		6BE4682559D44F1C9263B338 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79C80B788191424FA5754935 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -503,6 +557,7 @@
 		};
 		6BE46FA64C5AEEB27C97015E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79C80B788191424FA5754935 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

@@ -12,12 +12,15 @@
 #import "Parse/Parse.h"
 #import "MapKit/MapKit.h"
 #import "UIColor+WikiaColorTools.h"
+#import "MKMapView+ZoomLevel.h"
 
-@interface PRETHomeViewController() <MKMapViewDelegate>
+@interface PRETHomeViewController() <MKMapViewDelegate, CLLocationManagerDelegate>
 
 @property (nonatomic, strong) PRETHomeView *homeView;
 @property (nonatomic, strong) UIBarButtonItem *menuBarButton;
 @property (nonatomic, strong) UIBarButtonItem *filterBarButton;
+@property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, assign) BOOL dynamicPointsUpdateEnabled;
 
 @end
 
@@ -26,6 +29,8 @@
 }
 
 - (void)loadView {
+    self.dynamicPointsUpdateEnabled = NO;
+
     // Home View
     self.view = [self homeView];
 
@@ -38,20 +43,17 @@
     // Toolbar
     self.filterBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(filterBarButtonTapped)];
     self.navigationController.toolbarHidden = NO;
-    // toolbar color: 00AF5D
-    // toolbar height: 98
-    self.navigationController.toolbar.barTintColor = [UIColor colorWithHexString:@"00AF5D"];
+    self.navigationController.toolbar.barTintColor = [UIColor colorWithHexString:@"2D6B6B"];
     [self setToolbarItems:@[self.filterBarButton]];
-}
 
-- (void)viewWillAppear:(BOOL)animated {
-
-
+    // Location manager
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-
-
+    [self.locationManager startUpdatingLocation];
 }
 
 #pragma mark - Private Getters
@@ -59,7 +61,6 @@
     if (_homeView == nil) {
         _homeView = [[PRETHomeView alloc] initWithFrame:CGRectZero];
         _homeView.mapView.delegate = self;
-        _homeView.mapView.mapType = MKMapTypeHybrid;
     }
 
     return _homeView;
@@ -76,17 +77,6 @@
 #pragma mark - Bar Button Actions
 - (void)filterBarButtonTapped {
     NSLog(@"Button tapped");
-
-//    [PFCloud callFunctionInBackground:@"getCategories" withParameters:@{} block:^(id object, NSError *error) {
-//        if (error) {
-//            NSLog(@"Error: %@", error);
-//        }
-//        else {
-//            NSLog(@"Recived object: %@", object);
-//        }
-//    }];
-
-    [self loadPoints];
 }
 
 - (void)menuButtonTapped {
@@ -98,6 +88,11 @@
     // Load SW NE points from map
     MKCoordinateRegion region = MKCoordinateRegionForMapRect(self.homeView.mapView.visibleMapRect);
     NSLog(@"map rect: lat: %f lon: %f span:%f", region.center.latitude, region.center.longitude, region.span);
+
+    if (region.span.latitudeDelta > 5 || region.span.longitudeDelta > 5) {
+        NSLog(@"Too big span to load points!");
+        return;
+    }
 
     CLLocationDegrees sw_lat = region.center.latitude - (region.span.latitudeDelta / 2);
     CLLocationDegrees sw_lon = region.center.longitude - (region.span.longitudeDelta / 2);
@@ -140,6 +135,31 @@
 }
 
 #pragma mark - Map Delegate
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
+    NSLog(@"MAP region changed...");
+    if (animated) {
+        NSLog(@"Animated");
+    }
+
+    if (self.dynamicPointsUpdateEnabled) {
+        [self loadPoints];
+    }
+}
+
+
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
+    NSLog(@"View for annotation: %@", annotation);
+    return nil;
+}
+
+#pragma mark - Location Manager
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    [self.locationManager stopUpdatingLocation];
+    [self.homeView.mapView setCenterCoordinate:newLocation.coordinate zoomLevel:10 animated:YES];
+    self.dynamicPointsUpdateEnabled = YES;
+    [self loadPoints];
+}
 
 
 @end
