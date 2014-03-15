@@ -111,15 +111,29 @@
     PFGeoPoint *swPoint = [PFGeoPoint geoPointWithLatitude:sw_lat longitude:sw_lon];
     PFGeoPoint *nePoint = [PFGeoPoint geoPointWithLatitude:ne_lat longitude:ne_lon];
 
-    [PFCloud callFunctionInBackground:@"getPointsInArea" withParameters:@{@"south_west": swPoint, @"north_east": nePoint} block:^(NSArray *object, NSError *error) {
+    [PFCloud callFunctionInBackground:@"getPointsInArea" withParameters:@{@"south_west": swPoint, @"north_east": nePoint} block:^(NSArray *reportsCollection, NSError *error) {
         if (error) {
             NSLog(@"There was an error while loading nearest points: %@", error);
         }
         else {
-            NSLog(@"points: %@", object);
+            NSLog(@"points: %@", reportsCollection);
 
-            for (PFObject *point in object) {
-                NSLog(@"Point data: %@", point);
+            if ([reportsCollection count]) {
+                [self.homeView.mapView removeAnnotations:self.homeView.mapView.annotations];
+
+                for (PFObject *point in reportsCollection) {
+                    NSLog(@"Point data: %@", point);
+
+                    MKPointAnnotation *reportAnnotation = [[MKPointAnnotation alloc] init];
+                    PFGeoPoint *geoPoint = [point valueForKey:@"geo_point"];
+                    CLLocationCoordinate2D geoCoordinates;
+                    geoCoordinates.latitude = geoPoint.latitude;
+                    geoCoordinates.longitude = geoPoint.longitude;
+                    reportAnnotation.coordinate = geoCoordinates;
+                    reportAnnotation.title = [point valueForKey:@"name"];
+
+                    [self.homeView.mapView addAnnotation:reportAnnotation];
+                }
             }
         }
     }];
