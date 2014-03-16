@@ -31,6 +31,9 @@
     [self.drawerViewController setPaneViewController:self.navigationController];
     [self.drawerViewController setDrawerViewController:self.menuViewController forDirection:MSDynamicsDrawerDirectionLeft];
 
+    id <MSDynamicsDrawerStyler> parallaxStyler = [MSDynamicsDrawerParallaxStyler styler];
+    [self.drawerViewController addStyler:parallaxStyler forDirection:MSDynamicsDrawerDirectionLeft];
+
     // Create window
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = self.drawerViewController;

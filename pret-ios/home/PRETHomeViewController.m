@@ -21,6 +21,7 @@
 @property (nonatomic, strong) PRETHomeView *homeView;
 @property (nonatomic, strong) UIBarButtonItem *menuBarButton;
 @property (nonatomic, strong) UIBarButtonItem *filterBarButton;
+@property (nonatomic, strong) UIBarButtonItem *reportBarButton;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, assign) BOOL dynamicPointsUpdateEnabled;
 
@@ -37,16 +38,43 @@
     self.view = [self homeView];
 
     // Navbar
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithHexString:@"FFD600"];
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
 
     // Menu button
     self.navigationItem.leftBarButtonItem = self.menuBarButton;
 
     // Toolbar
-    self.filterBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(filterBarButtonTapped)];
     self.navigationController.toolbarHidden = NO;
-    self.navigationController.toolbar.barTintColor = [UIColor colorWithHexString:@"2D6B6B"];
-    [self setToolbarItems:@[self.filterBarButton]];
+    self.navigationController.toolbar.barTintColor = [UIColor colorWithHexString:@"2d6b6b"];
+
+    // Filter button
+    UIButton *filterButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [filterButton setImage:[UIImage imageNamed:@"filter_icon"] forState:UIControlStateNormal];
+    [filterButton setTitle:@"Filter" forState:UIControlStateNormal];
+    [filterButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [filterButton addTarget:self action:@selector(filterBarButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [filterButton sizeToFit];
+
+    self.filterBarButton = [[UIBarButtonItem alloc] initWithCustomView:filterButton];
+
+    // Search button
+
+
+    // Report button
+    UIButton *reportButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [reportButton addTarget:self action:@selector(reportButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [reportButton setImage:[UIImage imageNamed:@"report_btn"] forState:UIControlStateNormal];
+    reportButton.frame = CGRectMake(0, -19, 103, 81);
+
+    UIView *buttonContainerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 103, 80)];
+    [buttonContainerView addSubview:reportButton];
+    self.reportBarButton = [[UIBarButtonItem alloc] initWithCustomView:buttonContainerView];
+
+    // Some flexible element
+    UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+
+    // Put all buttons into toolbar
+    [self setToolbarItems:@[self.filterBarButton, flexibleItem, self.reportBarButton, flexibleItem]];
 
     // Location manager
     self.locationManager = [[CLLocationManager alloc] init];
@@ -70,7 +98,12 @@
 
 - (UIBarButtonItem *)menuBarButton {
     if (_menuBarButton == nil) {
-        _menuBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(menuButtonTapped)];
+        UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        menuButton.frame = CGRectMake(0, 0, 38, 31);
+        [menuButton addTarget:self action:@selector(menuButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+        [menuButton setImage:[UIImage imageNamed:@"hamburger_btn"] forState:UIControlStateNormal];
+
+        _menuBarButton = [[UIBarButtonItem alloc] initWithCustomView:menuButton];
     }
 
     return _menuBarButton;
@@ -96,6 +129,10 @@
             NSLog(@"Closed");
         }];
     }
+}
+
+- (void)reportButtonTapped {
+    NSLog(@"Report button!");
 }
 
 #pragma mark - API Calls
@@ -161,11 +198,12 @@
     }
 }
 
-
-
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
-    NSLog(@"View for annotation: %@", annotation);
-    return nil;
+    MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pret"];
+    annotationView.canShowCallout = YES;
+    annotationView.image = [UIImage imageNamed:@"flag_ico"];
+    annotationView.frame = CGRectMake(0, 0, 34, 50);
+    return annotationView;
 }
 
 #pragma mark - Location Manager
