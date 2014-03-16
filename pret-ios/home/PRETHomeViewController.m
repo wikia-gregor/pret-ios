@@ -15,6 +15,7 @@
 #import "UIColor+WikiaColorTools.h"
 #import "MKMapView+ZoomLevel.h"
 #import "PRETAppDelegate.h"
+#import "PRETReportCategoryViewController.h"
 
 @interface PRETHomeViewController() <MKMapViewDelegate, CLLocationManagerDelegate>
 
@@ -42,66 +43,40 @@
     // Home View
     self.view = [self homeView];
 
-    // Navbar
-    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
 
-    // Menu button
-    self.navigationItem.leftBarButtonItem = self.menuBarButton;
-
-    // Find button
-    self.navigationItem.rightBarButtonItem = self.findBarButton;
-
-    // Toolbar
-    self.navigationController.toolbarHidden = NO;
-    self.navigationController.toolbar.barTintColor = [UIColor colorWithHexString:@"2d6b6b"];
-
-    // Filter button
-    UIButton *filterButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [filterButton setImage:[UIImage imageNamed:@"filter_icon"] forState:UIControlStateNormal];
-    [filterButton setTitle:@"Filter" forState:UIControlStateNormal];
-    [filterButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [filterButton addTarget:self action:@selector(filterBarButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-    [filterButton sizeToFit];
-
-    self.filterBarButton = [[UIBarButtonItem alloc] initWithCustomView:filterButton];
-
-    // Report button
-    UIButton *reportButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [reportButton addTarget:self action:@selector(reportButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-    [reportButton setImage:[UIImage imageNamed:@"report_btn"] forState:UIControlStateNormal];
-    reportButton.frame = CGRectMake(0, -19, 103, 81);
-
-    UIView *buttonContainerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 103, 80)];
-    [buttonContainerView addSubview:reportButton];
-    self.reportBarButton = [[UIBarButtonItem alloc] initWithCustomView:buttonContainerView];
-
-    // Stats button
-    UIButton *statsButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [statsButton setImage:[UIImage imageNamed:@"stat_icon"] forState:UIControlStateNormal];
-    [statsButton setTitle:@"Stats" forState:UIControlStateNormal];
-    [statsButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [statsButton addTarget:self action:@selector(statsButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-    [statsButton sizeToFit];
-
-    self.statsBarButton = [[UIBarButtonItem alloc] initWithCustomView:statsButton];
-
-    // Some flexible element
-    UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-
-    // Put all buttons into toolbar
-    [self setToolbarItems:@[self.filterBarButton, flexibleItem, self.reportBarButton, flexibleItem, self.statsBarButton]];
-
-    // Location manager
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
 
     // Zoom buttons
     [self.homeView.zoomInButton addTarget:self action:@selector(toggleZoom) forControlEvents:UIControlEventTouchUpInside];
     [self.homeView.zoomOutButton addTarget:self action:@selector(toggleZoom) forControlEvents:UIControlEventTouchUpInside];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    // Menu button
+    self.navigationItem.leftBarButtonItem = self.menuBarButton;
+
+    // Find button
+    self.navigationItem.rightBarButtonItem = self.findBarButton;
+
+    // Navbar
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+
+    // Toolbar
+    self.navigationController.toolbarHidden = NO;
+    self.navigationController.toolbar.barTintColor = [UIColor colorWithHexString:@"2d6b6b"];
+
+    // Some flexible element
+    UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+
+    // Put all buttons into toolbar
+    [self setToolbarItems:@[self.filterBarButton, flexibleItem, self.reportBarButton, flexibleItem, self.statsBarButton]];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
+
+    // Location manager
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [self.locationManager startUpdatingLocation];
 }
 
@@ -129,16 +104,62 @@
 }
 
 - (UIBarButtonItem *)findBarButton {
-    if (_filterBarButton == nil) {
+    if (_findBarButton == nil) {
         UIButton *findButton = [UIButton buttonWithType:UIButtonTypeCustom];
         findButton.frame = CGRectMake(0, 0, 66, 31);
         [findButton addTarget:self action:@selector(findButtonTapped) forControlEvents:UIControlEventTouchUpInside];
         [findButton setImage:[UIImage imageNamed:@"find_btn"] forState:UIControlStateNormal];
 
-        _filterBarButton = [[UIBarButtonItem alloc] initWithCustomView:findButton];
+        _findBarButton = [[UIBarButtonItem alloc] initWithCustomView:findButton];
+    }
+
+    return _findBarButton;
+}
+
+- (UIBarButtonItem *)filterBarButton {
+    if (_filterBarButton == nil) {
+        // Filter button
+        UIButton *filterButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [filterButton setImage:[UIImage imageNamed:@"filter_icon"] forState:UIControlStateNormal];
+        [filterButton setTitle:@"Filter" forState:UIControlStateNormal];
+        [filterButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [filterButton addTarget:self action:@selector(filterBarButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+        [filterButton sizeToFit];
+
+        _filterBarButton = [[UIBarButtonItem alloc] initWithCustomView:filterButton];
     }
 
     return _filterBarButton;
+}
+
+- (UIBarButtonItem *)reportBarButton {
+    if (_reportBarButton == nil) {
+        UIButton *reportButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [reportButton addTarget:self action:@selector(reportButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+        [reportButton setImage:[UIImage imageNamed:@"report_btn"] forState:UIControlStateNormal];
+        reportButton.frame = CGRectMake(0, -19, 103, 81);
+
+        UIView *buttonContainerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 103, 80)];
+        [buttonContainerView addSubview:reportButton];
+        _reportBarButton = [[UIBarButtonItem alloc] initWithCustomView:buttonContainerView];
+    }
+
+    return _reportBarButton;
+}
+
+- (UIBarButtonItem *)statsBarButton {
+    if (_statsBarButton == nil) {
+        UIButton *statsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [statsButton setImage:[UIImage imageNamed:@"stat_icon"] forState:UIControlStateNormal];
+        [statsButton setTitle:@"Stats" forState:UIControlStateNormal];
+        [statsButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [statsButton addTarget:self action:@selector(statsButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+        [statsButton sizeToFit];
+
+        _statsBarButton = [[UIBarButtonItem alloc] initWithCustomView:statsButton];
+    }
+
+    return _statsBarButton;
 }
 
 #pragma mark - Bar Button Actions
@@ -169,6 +190,9 @@
 
 - (void)reportButtonTapped {
     NSLog(@"Report button!");
+
+    PRETReportCategoryViewController *reportCategoryViewController = [[PRETReportCategoryViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:reportCategoryViewController animated:YES];
 }
 
 - (void)statsButtonTapped {

@@ -1,15 +1,15 @@
 //
-//  PRETMenuView
+//  PRETReportCategoryView
 //  pret-ios 
 //
 //  Created by Grzegorz Nowicki <grzegorz@wikia-inc.com> on 16.03.2014.
 //  Copyright (c) 2014 Wikia Sp. z o.o. All rights reserved.
 //
 
-#import "PRETMenuView.h"
+#import "PRETReportCategoryView.h"
 
 
-@implementation PRETMenuView {
+@implementation PRETReportCategoryView {
 
 }
 
@@ -23,12 +23,7 @@
 }
 
 - (void)setUp {
-    self.backgroundColor = [UIColor whiteColor];
-
-    UILabel *test = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 50)];
-    [test setText:@"testing text"];
-    [test setTextColor:[UIColor blueColor]];
-    [self addSubview:test];
+    self.backgroundColor = [UIColor greenColor];
 }
 
 @end
