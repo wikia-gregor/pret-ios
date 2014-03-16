@@ -9,6 +9,7 @@
 #import "PRETReportCategoryViewController.h"
 #import "PRETReportCategoryView.h"
 #import "UIColor+WikiaColorTools.h"
+#import "PRETReportDescriptionViewController.h"
 
 @interface PRETReportCategoryViewController() <UITableViewDelegate, UITableViewDataSource>
 
@@ -31,7 +32,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationItem.leftBarButtonItem = self.backBarButton;
     self.navigationController.toolbarHidden = YES;
-
 }
 
 #pragma mark -
@@ -101,7 +101,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"didSelect!");
+
+    PRETReportDescriptionViewController *reportDescriptionViewController = [[PRETReportDescriptionViewController alloc] initWithCategory:@1];
+    [self.navigationController pushViewController:reportDescriptionViewController animated:YES];
+
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {

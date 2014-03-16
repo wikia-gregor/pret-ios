@@ -77,7 +77,10 @@
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    [self.locationManager startUpdatingLocation];
+
+    if (self.currentUserCoordinate.latitude == 0) {
+        [self.locationManager startUpdatingLocation];
+    }
 }
 
 #pragma mark - Private Getters

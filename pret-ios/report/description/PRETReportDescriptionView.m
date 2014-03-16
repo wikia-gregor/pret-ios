@@ -1,21 +1,21 @@
 //
-//  PRETReportCategoryView
+//  PRETReportDescriptionView
 //  pret-ios 
 //
 //  Created by Grzegorz Nowicki <grzegorz@wikia-inc.com> on 16.03.2014.
 //  Copyright (c) 2014 Wikia Sp. z o.o. All rights reserved.
 //
 
-#import "PRETReportCategoryView.h"
+#import "PRETReportDescriptionView.h"
 #import "UIColor+WikiaColorTools.h"
 
-@interface PRETReportCategoryView()
+@interface PRETReportDescriptionView()
 
 @property (nonatomic, strong) UIView *infoBackgroundView;
 
 @end
 
-@implementation PRETReportCategoryView {
+@implementation PRETReportDescriptionView {
 
 }
 
@@ -36,23 +36,21 @@
     [self addSubview:self.infoBackgroundView];
 
     self.mainInfoLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    [self.mainInfoLabel setText:@"Please pick category"];
+    [self.mainInfoLabel setText:@"Please describe problem"];
     [self.mainInfoLabel setTextColor:[UIColor whiteColor]];
     [self.mainInfoLabel setFont:[UIFont boldSystemFontOfSize:26.0f]];
     self.mainInfoLabel.textAlignment = NSTextAlignmentCenter;
     [self.infoBackgroundView addSubview:self.mainInfoLabel];
 
     self.infoSubtitleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    [self.infoSubtitleLabel setText:@"(It will help us generate better statistics)"];
+    [self.infoSubtitleLabel setText:@"(You can skip this step if you think it's not necessary)"];
+    [self.infoSubtitleLabel setFont:[UIFont systemFontOfSize:12.0f]];
     [self.infoSubtitleLabel setTextColor:[UIColor whiteColor]];
     self.infoSubtitleLabel.textAlignment = NSTextAlignmentCenter;
     [self.infoBackgroundView addSubview:self.infoSubtitleLabel];
 
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-    self.tableView.bounces = NO;
-    self.tableView.separatorColor = [UIColor colorWithHexString:@"585656"];
-    self.tableView.backgroundColor = [UIColor colorWithHexString:@"e1e1e1"];
-    [self addSubview:self.tableView];
+    self.textView = [[UITextView alloc] initWithFrame:CGRectZero];
+    [self addSubview:self.textView];
 }
 
 - (void)layoutSubviews {
@@ -77,10 +75,10 @@
             30
     );
 
-    self.tableView.frame = CGRectMake(
-            0,
-            CGRectGetMaxY(self.infoBackgroundView.frame),
-            CGRectGetWidth(self.bounds),
+    self.textView.frame = CGRectMake(
+            10,
+            CGRectGetMaxY(self.infoBackgroundView.frame) + 10,
+            CGRectGetWidth(self.bounds) - 20,
             300
     );
 }
