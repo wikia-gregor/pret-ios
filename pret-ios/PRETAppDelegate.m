@@ -9,6 +9,8 @@
 #import "PRETAppDelegate.h"
 #import "PRETHomeViewController.h"
 #import "Parse/Parse.h"
+#import "MSDynamicsDrawerViewController.h"
+#import "PRETMenuViewController.h"
 
 @implementation PRETAppDelegate
 
@@ -19,15 +21,19 @@
     [Parse setApplicationId:@"5bPOC1kbVMfqqw7QbW1SUH1YwZqbkLhbZziuaxmM"
                   clientKey:@"GI9xyrYsM2TaSvQaKBR0glpm2Ym8fNcNhNiVuMXM"];
 
+
+
     // Build Root ViewController
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.homeViewController];
 
-    // Setup NavigationBarController
-//    self.navigationBarController = [[PRETNavigationBarController alloc] initWithNavigationController:self.homeViewController];
+    // Drawer View Controller
+    self.drawerViewController = [MSDynamicsDrawerViewController new];
+    [self.drawerViewController setPaneViewController:self.navigationController];
+    [self.drawerViewController setDrawerViewController:self.menuViewController forDirection:MSDynamicsDrawerDirectionLeft];
 
     // Create window
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = self.navigationController;
+    self.window.rootViewController = self.drawerViewController;
 
     // Rock & Roll!
     [self.window makeKeyAndVisible];
@@ -75,6 +81,14 @@
     }
 
     return _homeViewController;
+}
+
+- (PRETMenuViewController *)menuViewController {
+    if (_menuViewController == nil) {
+        _menuViewController = [[PRETMenuViewController alloc] initWithNibName:nil bundle:nil];
+    }
+
+    return _menuViewController;
 }
 
 @end

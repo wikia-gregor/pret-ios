@@ -7,12 +7,14 @@
 //
 
 #import <CoreLocation/CoreLocation.h>
+#import <MSDynamicsDrawerViewController/MSDynamicsDrawerViewController.h>
 #import "PRETHomeViewController.h"
 #import "PRETHomeView.h"
 #import "Parse/Parse.h"
 #import "MapKit/MapKit.h"
 #import "UIColor+WikiaColorTools.h"
 #import "MKMapView+ZoomLevel.h"
+#import "PRETAppDelegate.h"
 
 @interface PRETHomeViewController() <MKMapViewDelegate, CLLocationManagerDelegate>
 
@@ -81,6 +83,19 @@
 
 - (void)menuButtonTapped {
     NSLog(@"Menu button tapped");
+
+    PRETAppDelegate *appDelegate = (PRETAppDelegate *)[[UIApplication sharedApplication] delegate];
+
+    if (appDelegate.drawerViewController.paneState == MSDynamicsDrawerPaneStateClosed) {
+        [appDelegate.drawerViewController setPaneState:MSDynamicsDrawerPaneStateOpen animated:YES allowUserInterruption:YES completion:^{
+            NSLog(@"Opened!");
+        }];
+    }
+    else {
+        [appDelegate.drawerViewController setPaneState:MSDynamicsDrawerPaneStateClosed animated:YES allowUserInterruption:YES completion:^{
+            NSLog(@"Closed");
+        }];
+    }
 }
 
 #pragma mark - API Calls

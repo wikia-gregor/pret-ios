@@ -32,9 +32,11 @@
 		6BE4679E748FF44974DF25B0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE465954108B29C4A8326A8 /* UIKit.framework */; };
 		6BE4688249C6238C12947748 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE46A828D2968CF2100D39E /* XCTest.framework */; };
 		6BE468C5C29629BEC7FAB875 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE465954108B29C4A8326A8 /* UIKit.framework */; };
+		6BE468F7B9BCA3FE73355C46 /* PRETMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE46DB79E9E092488C2415A /* PRETMenuViewController.m */; };
 		6BE46BC4469A8949B8D6789B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE46D95C89D8038CB65B192 /* Foundation.framework */; };
 		6BE46BC55F98D7E01A22607A /* PRETAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE466CAF2E4C6FA58877CC8 /* PRETAboutViewController.m */; };
 		6BE46DFCFBADC9E3322ACF0B /* PRETHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE460C05366518B2B545E3E /* PRETHomeView.m */; };
+		6BE46F6426376FA225E2D043 /* PRETMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE46B71D0E3772C0C61E50C /* PRETMenuView.m */; };
 		6BE46F7BC92437226A8BEAE7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE46D95C89D8038CB65B192 /* Foundation.framework */; };
 		6BE46F94AF48CB08D9154EAD /* PRETAboutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE46BC5699811C9C2DF1592 /* PRETAboutView.m */; };
 		6F3FEC38724148C4805B4F06 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C9569BB2194B08B962B2D6 /* libPods.a */; };
@@ -81,14 +83,18 @@
 		6BE46A69A8185BAB75ABC3E6 /* PRETAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRETAppDelegate.m; sourceTree = "<group>"; };
 		6BE46A828D2968CF2100D39E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6BE46AC1D781D56CA5974B8C /* PRETHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRETHomeViewController.h; sourceTree = "<group>"; };
+		6BE46B71D0E3772C0C61E50C /* PRETMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRETMenuView.m; sourceTree = "<group>"; };
 		6BE46BC5699811C9C2DF1592 /* PRETAboutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRETAboutView.m; sourceTree = "<group>"; };
 		6BE46CEF27E0B011E8D29256 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6BE46D16F3E09089AAE1E65F /* MKMapView+ZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ZoomLevel.m"; sourceTree = "<group>"; };
 		6BE46D95C89D8038CB65B192 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6BE46DB79E9E092488C2415A /* PRETMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRETMenuViewController.m; sourceTree = "<group>"; };
 		6BE46DCBBF2D4421A761F6AE /* PRETTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "PRETTests-Info.plist"; sourceTree = "<group>"; };
 		6BE46E148C4AA5CF657A5DE1 /* PRETHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRETHomeView.h; sourceTree = "<group>"; };
+		6BE46E51CD43084B74409EEA /* PRETMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRETMenuView.h; sourceTree = "<group>"; };
 		6BE46EEB343B0DEE4092AB36 /* PRET-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PRET-Prefix.pch"; sourceTree = "<group>"; };
 		6BE46F089BC65BFEEB1281F7 /* PRET.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PRET.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BE46F0CE32A62CF1C13A969 /* PRETMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRETMenuViewController.h; sourceTree = "<group>"; };
 		6BE46F963CECDFADDD36FBD4 /* UIColor+WikiaColorTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+WikiaColorTools.m"; sourceTree = "<group>"; };
 		6BE46FAB945B83B383AE1D54 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		79C80B788191424FA5754935 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -132,6 +138,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6BE461287D08F0AF2F65AA47 /* menu */ = {
+			isa = PBXGroup;
+			children = (
+				6BE46DB79E9E092488C2415A /* PRETMenuViewController.m */,
+				6BE46F0CE32A62CF1C13A969 /* PRETMenuViewController.h */,
+				6BE46B71D0E3772C0C61E50C /* PRETMenuView.m */,
+				6BE46E51CD43084B74409EEA /* PRETMenuView.h */,
+			);
+			path = menu;
+			sourceTree = "<group>";
+		};
 		6BE4626CAF541ADF902DBF26 /* vendors */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,8 +253,8 @@
 				6BE469982648A857F4C8002A /* Images.xcassets */,
 				6BE465F009F379CC1CADE6F5 /* home */,
 				6BE46D3CDB7564C3B4A911D7 /* about */,
-				6BE46EF9D9367E3530C221DF /* Model */,
 				6BE4626CAF541ADF902DBF26 /* vendors */,
+				6BE461287D08F0AF2F65AA47 /* menu */,
 			);
 			path = "pret-ios";
 			sourceTree = "<group>";
@@ -251,13 +268,6 @@
 				6BE464EC45D4FFC272BDA55D /* PRETAboutView.h */,
 			);
 			path = about;
-			sourceTree = "<group>";
-		};
-		6BE46EF9D9367E3530C221DF /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,6 +410,8 @@
 				6BE46F94AF48CB08D9154EAD /* PRETAboutView.m in Sources */,
 				6BE463537A4764961EB2F9B8 /* UIColor+WikiaColorTools.m in Sources */,
 				6BE466362F57DD3C346FA3F7 /* MKMapView+ZoomLevel.m in Sources */,
+				6BE468F7B9BCA3FE73355C46 /* PRETMenuViewController.m in Sources */,
+				6BE46F6426376FA225E2D043 /* PRETMenuView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
