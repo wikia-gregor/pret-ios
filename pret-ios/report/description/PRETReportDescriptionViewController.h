@@ -11,6 +11,6 @@
 
 @interface PRETReportDescriptionViewController : UIViewController
 
-- (instancetype)initWithCategory:(NSNumber *)categoryId;
+- (instancetype)initWithCategory:(NSString *)categoryId reportCoordinate:(CLLocationCoordinate2D)reportCoordinate;
 
 @end

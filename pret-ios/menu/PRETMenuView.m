@@ -25,10 +25,15 @@
 - (void)setUp {
     self.backgroundColor = [UIColor whiteColor];
 
-    UILabel *test = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 50)];
-    [test setText:@"testing text"];
-    [test setTextColor:[UIColor blueColor]];
-    [self addSubview:test];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mainmenu"]];
+//    imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+
+    [self addSubview:imageView];
+
+//    UILabel *test = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 50)];
+//    [test setText:@"testing text"];
+//    [test setTextColor:[UIColor blueColor]];
+//    [self addSubview:test];
 }
 
 @end

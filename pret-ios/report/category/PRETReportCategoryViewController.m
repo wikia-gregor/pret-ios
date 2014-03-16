@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Wikia Sp. z o.o. All rights reserved.
 //
 
+#import <CoreLocation/CoreLocation.h>
 #import "PRETReportCategoryViewController.h"
 #import "PRETReportCategoryView.h"
 #import "UIColor+WikiaColorTools.h"
@@ -15,6 +16,7 @@
 
 @property (nonatomic, strong) PRETReportCategoryView *reportCategoryView;
 @property (nonatomic, strong) UIBarButtonItem *backBarButton;
+@property (nonatomic, assign) CLLocationCoordinate2D reportCoordinate;
 
 @end
 
@@ -22,6 +24,15 @@
 @implementation PRETReportCategoryViewController {
 
 }
+- (instancetype)initWitchReportCoordinate:(CLLocationCoordinate2D)reportCoordinate {
+    self = [super initWithNibName:nil bundle:nil];
+    if (self) {
+        self.reportCoordinate = reportCoordinate;
+    }
+
+    return self;
+}
+
 
 - (void)loadView {
     self.view = self.reportCategoryView;
@@ -102,7 +113,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    PRETReportDescriptionViewController *reportDescriptionViewController = [[PRETReportDescriptionViewController alloc] initWithCategory:@1];
+    PRETReportDescriptionViewController *reportDescriptionViewController = [[PRETReportDescriptionViewController alloc] initWithCategory:@"e6aqnUd1PQ" reportCoordinate:self.reportCoordinate];
     [self.navigationController pushViewController:reportDescriptionViewController animated:YES];
 
 }

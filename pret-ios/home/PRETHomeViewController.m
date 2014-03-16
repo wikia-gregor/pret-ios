@@ -29,6 +29,7 @@
 @property (nonatomic, assign) BOOL dynamicPointsUpdateEnabled;
 @property (nonatomic, assign) BOOL zoomIn;
 @property (nonatomic, assign) CLLocationCoordinate2D currentUserCoordinate;
+@property (nonatomic, strong) UIImageView *logoImageView;
 
 @end
 
@@ -43,8 +44,6 @@
     // Home View
     self.view = [self homeView];
 
-
-
     // Zoom buttons
     [self.homeView.zoomInButton addTarget:self action:@selector(toggleZoom) forControlEvents:UIControlEventTouchUpInside];
     [self.homeView.zoomOutButton addTarget:self action:@selector(toggleZoom) forControlEvents:UIControlEventTouchUpInside];
@@ -56,6 +55,9 @@
 
     // Find button
     self.navigationItem.rightBarButtonItem = self.findBarButton;
+
+    // Logo
+    self.navigationItem.titleView = self.logoImageView;
 
     // Navbar
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
@@ -72,7 +74,6 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-
     // Location manager
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
@@ -166,6 +167,14 @@
     return _statsBarButton;
 }
 
+- (UIImageView *)logoImageView {
+    if (_logoImageView == nil) {
+        _logoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo_app"]];
+    }
+
+    return _logoImageView;
+}
+
 #pragma mark - Bar Button Actions
 - (void)filterBarButtonTapped {
     NSLog(@"Button tapped");
@@ -195,7 +204,7 @@
 - (void)reportButtonTapped {
     NSLog(@"Report button!");
 
-    PRETReportCategoryViewController *reportCategoryViewController = [[PRETReportCategoryViewController alloc] initWithNibName:nil bundle:nil];
+    PRETReportCategoryViewController *reportCategoryViewController = [[PRETReportCategoryViewController alloc] initWitchReportCoordinate:self.currentUserCoordinate];
     [self.navigationController pushViewController:reportCategoryViewController animated:YES];
 }
 

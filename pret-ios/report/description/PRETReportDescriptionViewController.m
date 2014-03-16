@@ -6,27 +6,31 @@
 //  Copyright (c) 2014 Wikia Sp. z o.o. All rights reserved.
 //
 
+#import <Parse/Parse.h>
 #import "PRETReportDescriptionViewController.h"
 #import "PRETReportDescriptionView.h"
+#import "UIImage+Resize.h"
 
 @interface PRETReportDescriptionViewController() <UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (nonatomic, strong) PRETReportDescriptionView *reportDescriptionView;
-@property (nonatomic, strong) NSNumber *categoryId;
+@property (nonatomic, strong) NSString *categoryId;
 @property (nonatomic, strong) UIBarButtonItem *backBarButton;
 @property (nonatomic, strong) UIBarButtonItem *nextBarButton;
 
 @property (nonatomic, strong) UIImagePickerController *imagePickerController;
+@property (nonatomic, assign) CLLocationCoordinate2D reportCoordinate;
 
 @end
 
 @implementation PRETReportDescriptionViewController {
 
 }
-- (instancetype)initWithCategory:(NSNumber *)categoryId {
+- (instancetype)initWithCategory:(NSString *)categoryId reportCoordinate:(CLLocationCoordinate2D)reportCoordinate {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         self.categoryId = categoryId;
+        self.reportCoordinate = reportCoordinate;
     }
 
     return self;
@@ -121,6 +125,35 @@
     NSLog(@"Photo taken!");
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
         NSLog(@"picker should be hided");
+    }];
+
+    UIImage *resizedImage = [image resizedImageToSize:CGSizeMake(640, 480)];
+    NSData *imageData = UIImagePNGRepresentation(resizedImage);
+    PFFile *imageFile = [PFFile fileWithName:@"reportImage.png" data:imageData];
+    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        PFGeoPoint *geoPoint = [[PFGeoPoint alloc] init];
+        geoPoint.longitude = self.reportCoordinate.longitude;
+        geoPoint.latitude = self.reportCoordinate.latitude;
+
+        NSDictionary *parseCallParams = @{
+                @"name": self.reportDescriptionView.textView.text,
+                @"geo_point": geoPoint,
+                @"category_id": self.categoryId,
+                @"status_id": @"ZxC08aColc",
+                @"description": self.reportDescriptionView.textView.text,
+                @"file": imageFile
+        };
+
+        [PFCloud callFunctionInBackground:@"addReport" withParameters:parseCallParams block:^(id object, NSError *error) {
+            if (error) {
+                NSLog(@"There was an error: %@", error);
+            }
+            else {
+                NSLog(@"SUCCESS!!! Report added!");
+            }
+
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }];
     }];
 }
 

@@ -10,4 +10,7 @@
 
 
 @interface PRETReportCategoryViewController : UIViewController
+
+- (instancetype)initWitchReportCoordinate:(CLLocationCoordinate2D)reportCoordinate;
+
 @end
