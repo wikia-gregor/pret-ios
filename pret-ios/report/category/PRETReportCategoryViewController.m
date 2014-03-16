@@ -8,8 +8,9 @@
 
 #import "PRETReportCategoryViewController.h"
 #import "PRETReportCategoryView.h"
+#import "UIColor+WikiaColorTools.h"
 
-@interface PRETReportCategoryViewController()
+@interface PRETReportCategoryViewController() <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) PRETReportCategoryView *reportCategoryView;
 @property (nonatomic, strong) UIBarButtonItem *backBarButton;
@@ -23,18 +24,21 @@
 
 - (void)loadView {
     self.view = self.reportCategoryView;
-    self.navigationItem.leftBarButtonItem = self.backBarButton;
-    self.navigationController.toolbarHidden = YES;
+    self.reportCategoryView.tableView.dataSource = self;
+    self.reportCategoryView.tableView.delegate = self;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
+    self.navigationItem.leftBarButtonItem = self.backBarButton;
+    self.navigationController.toolbarHidden = YES;
 
 }
 
 #pragma mark -
 - (PRETReportCategoryView *)reportCategoryView {
     if (_reportCategoryView == nil) {
-        _reportCategoryView = [[PRETReportCategoryView alloc] initWithFrame:CGRectZero];
+        _reportCategoryView = [[PRETReportCategoryView alloc] initWithFrame:CGRectMake(0, self.navigationController.navigationBar.frame.size.height, 320, 370)];
+        _reportCategoryView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     }
 
     return _reportCategoryView;
@@ -57,5 +61,52 @@
 - (void)backButtonTapped {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+#pragma mark - TableView
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 5;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"pret"];
+
+    switch (indexPath.row) {
+        case 0:
+            cell.textLabel.text = @"Vertical Signs";
+            cell.imageView.image = [UIImage imageNamed:@"ico02_"];
+            break;
+        case 1:
+            cell.textLabel.text = @"Horizontal Signs";
+            cell.imageView.image = [UIImage imageNamed:@"ico01_"];
+            break;
+        case 2:
+            cell.textLabel.text = @"Road holes";
+            cell.imageView.image = [UIImage imageNamed:@"ico03_"];
+            break;
+        case 3:
+            cell.textLabel.text = @"Street lights";
+            cell.imageView.image = [UIImage imageNamed:@"ico04_"];
+            break;
+        case 4:
+            cell.textLabel.text = @"Others";
+            cell.imageView.image = [UIImage imageNamed:@"ico05_"];
+            break;
+        default:
+            break;
+    }
+
+    cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"green_arrow"]];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSLog(@"didSelect!");
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    cell.backgroundColor = [UIColor colorWithHexString:@"e1e1e1"];
+}
+
 
 @end

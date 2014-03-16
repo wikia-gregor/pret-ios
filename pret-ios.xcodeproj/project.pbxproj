@@ -23,6 +23,7 @@
 		6BE4608B6F1AABC3736E5107 /* PRETAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE46A69A8185BAB75ABC3E6 /* PRETAppDelegate.m */; };
 		6BE460934AA59748011E7A2B /* hamburger_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BE46CB822AD5EA558125C6B /* hamburger_btn@2x.png */; };
 		6BE460A9856CFA8571EF7572 /* filter_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BE468CBBAC1F6F8BD2AC5CA /* filter_icon@2x.png */; };
+		6BE460FC5DC3FA520DC4923B /* mainmenu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BE46A7792C2A113CE61F186 /* mainmenu@2x.png */; };
 		6BE46281A7B56A53B3D1ED2E /* green_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BE462730DB3CFD578B69C26 /* green_arrow@2x.png */; };
 		6BE462D1EA8E0C71A082C3A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BE469982648A857F4C8002A /* Images.xcassets */; };
 		6BE4630961442CC47A27B852 /* PRETReportCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE461011881E9572981BA0B /* PRETReportCategoryViewController.m */; };
@@ -48,6 +49,7 @@
 		6BE46964EA9EE63DA584FEBE /* zoom_out_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BE46D7630CAF00943A7CF35 /* zoom_out_btn@2x.png */; };
 		6BE469B2166B49CDCEEF7061 /* flag_ico@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BE460753DDEE5E17C812C5A /* flag_ico@2x.png */; };
 		6BE46A55A84FA8949A3D4015 /* ico03_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BE466D41C30487C6CCE5B54 /* ico03_@2x.png */; };
+		6BE46B122D7553E65239EE48 /* logo_app@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BE4628A65A8F1FB728DFF2E /* logo_app@2x.png */; };
 		6BE46B9F03977F2EF7FBF70C /* PRETReportCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE46E5458C0E78FD038A7D6 /* PRETReportCategoryView.m */; };
 		6BE46BC4469A8949B8D6789B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE46D95C89D8038CB65B192 /* Foundation.framework */; };
 		6BE46BC55F98D7E01A22607A /* PRETAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE466CAF2E4C6FA58877CC8 /* PRETAboutViewController.m */; };
@@ -89,6 +91,7 @@
 		6BE461011881E9572981BA0B /* PRETReportCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRETReportCategoryViewController.m; sourceTree = "<group>"; };
 		6BE461A250F819F3AEC276F3 /* zoom_in_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zoom_in_btn@2x.png"; sourceTree = "<group>"; };
 		6BE462730DB3CFD578B69C26 /* green_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green_arrow@2x.png"; sourceTree = "<group>"; };
+		6BE4628A65A8F1FB728DFF2E /* logo_app@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo_app@2x.png"; sourceTree = "<group>"; };
 		6BE462C5DE319B706250E645 /* PRET-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "PRET-Info.plist"; sourceTree = "<group>"; };
 		6BE462EE18C4919624D81E11 /* ico02_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico02_@2x.png"; sourceTree = "<group>"; };
 		6BE463D94BA3F2B41D32DEC1 /* PRETReportCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRETReportCategoryViewController.h; sourceTree = "<group>"; };
@@ -116,6 +119,7 @@
 		6BE469DD8717DE5ECAF51D5A /* ico01_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico01_@2x.png"; sourceTree = "<group>"; };
 		6BE469F8FF0FFA2FD5026CF6 /* UIColor+WikiaColorTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+WikiaColorTools.h"; sourceTree = "<group>"; };
 		6BE46A69A8185BAB75ABC3E6 /* PRETAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRETAppDelegate.m; sourceTree = "<group>"; };
+		6BE46A7792C2A113CE61F186 /* mainmenu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainmenu@2x.png"; sourceTree = "<group>"; };
 		6BE46A828D2968CF2100D39E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6BE46A9440B07AA907BA785B /* back_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_btn@2x.png"; sourceTree = "<group>"; };
 		6BE46AC1D781D56CA5974B8C /* PRETHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRETHomeViewController.h; sourceTree = "<group>"; };
@@ -346,6 +350,8 @@
 				6BE46922A6F336E023938791 /* ico04_@2x.png */,
 				6BE46F90F6603419C6B5BAA4 /* ico05_@2x.png */,
 				6BE469DD8717DE5ECAF51D5A /* ico01_@2x.png */,
+				6BE46A7792C2A113CE61F186 /* mainmenu@2x.png */,
+				6BE4628A65A8F1FB728DFF2E /* logo_app@2x.png */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -469,6 +475,8 @@
 				6BE46E096FA42C83FDC9587A /* ico04_@2x.png in Resources */,
 				6BE46FCC54B55C2C5726409D /* ico05_@2x.png in Resources */,
 				6BE46E3970E2F3C014C4B407 /* ico01_@2x.png in Resources */,
+				6BE460FC5DC3FA520DC4923B /* mainmenu@2x.png in Resources */,
+				6BE46B122D7553E65239EE48 /* logo_app@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

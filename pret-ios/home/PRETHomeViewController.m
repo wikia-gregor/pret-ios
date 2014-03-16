@@ -83,7 +83,8 @@
 #pragma mark - Private Getters
 - (PRETHomeView *)homeView {
     if (_homeView == nil) {
-        _homeView = [[PRETHomeView alloc] initWithFrame:CGRectZero];
+        _homeView = [[PRETHomeView alloc] initWithFrame:CGRectMake(0, self.navigationController.navigationBar.frame.size.height, 320, 370)];
+        _homeView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
         _homeView.mapView.delegate = self;
     }
 
