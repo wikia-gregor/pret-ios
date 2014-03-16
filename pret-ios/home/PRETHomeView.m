@@ -25,6 +25,18 @@
 - (void)setUp {
     self.backgroundColor = [UIColor grayColor];
     [self addSubview:self.mapView];
+
+    self.zoomInButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.zoomInButton setImage:[UIImage imageNamed:@"zoom_in_btn"] forState:UIControlStateNormal];
+    self.zoomInButton.hidden = YES;
+    [self.zoomInButton sizeToFit];
+    [self addSubview:self.zoomInButton];
+
+    self.zoomOutButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.zoomOutButton setImage:[UIImage imageNamed:@"zoom_out_btn"] forState:UIControlStateNormal];
+    self.zoomOutButton.hidden = NO;
+    [self.zoomOutButton sizeToFit];
+    [self addSubview:self.zoomOutButton];
 }
 
 - (void)layoutSubviews {
@@ -34,6 +46,14 @@
             CGRectGetWidth(self.bounds),
             CGRectGetHeight(self.bounds) - 44.0f
     );
+
+    CGPoint zoomButtonCenter = CGPointMake(
+            CGRectGetWidth(self.bounds) - 30,
+            100
+    );
+
+    self.zoomInButton.center = zoomButtonCenter;
+    self.zoomOutButton.center = zoomButtonCenter;
 }
 
 #pragma mark - Getters

@@ -12,5 +12,7 @@
 @interface PRETHomeView : UIView
 
 @property (nonatomic, strong) MKMapView *mapView;
+@property (nonatomic, strong) UIButton *zoomInButton;
+@property (nonatomic, strong) UIButton *zoomOutButton;
 
 @end

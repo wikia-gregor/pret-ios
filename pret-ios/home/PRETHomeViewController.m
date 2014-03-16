@@ -20,10 +20,14 @@
 
 @property (nonatomic, strong) PRETHomeView *homeView;
 @property (nonatomic, strong) UIBarButtonItem *menuBarButton;
+@property (nonatomic, strong) UIBarButtonItem *findBarButton;
 @property (nonatomic, strong) UIBarButtonItem *filterBarButton;
 @property (nonatomic, strong) UIBarButtonItem *reportBarButton;
+@property (nonatomic, strong) UIBarButtonItem *statsBarButton;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, assign) BOOL dynamicPointsUpdateEnabled;
+@property (nonatomic, assign) BOOL zoomIn;
+@property (nonatomic, assign) CLLocationCoordinate2D currentUserCoordinate;
 
 @end
 
@@ -33,6 +37,7 @@
 
 - (void)loadView {
     self.dynamicPointsUpdateEnabled = NO;
+    self.zoomIn = NO;
 
     // Home View
     self.view = [self homeView];
@@ -42,6 +47,9 @@
 
     // Menu button
     self.navigationItem.leftBarButtonItem = self.menuBarButton;
+
+    // Find button
+    self.navigationItem.rightBarButtonItem = self.findBarButton;
 
     // Toolbar
     self.navigationController.toolbarHidden = NO;
@@ -57,9 +65,6 @@
 
     self.filterBarButton = [[UIBarButtonItem alloc] initWithCustomView:filterButton];
 
-    // Search button
-
-
     // Report button
     UIButton *reportButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [reportButton addTarget:self action:@selector(reportButtonTapped) forControlEvents:UIControlEventTouchUpInside];
@@ -70,16 +75,30 @@
     [buttonContainerView addSubview:reportButton];
     self.reportBarButton = [[UIBarButtonItem alloc] initWithCustomView:buttonContainerView];
 
+    // Stats button
+    UIButton *statsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [statsButton setImage:[UIImage imageNamed:@"stat_icon"] forState:UIControlStateNormal];
+    [statsButton setTitle:@"Stats" forState:UIControlStateNormal];
+    [statsButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [statsButton addTarget:self action:@selector(statsButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [statsButton sizeToFit];
+
+    self.statsBarButton = [[UIBarButtonItem alloc] initWithCustomView:statsButton];
+
     // Some flexible element
     UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
 
     // Put all buttons into toolbar
-    [self setToolbarItems:@[self.filterBarButton, flexibleItem, self.reportBarButton, flexibleItem]];
+    [self setToolbarItems:@[self.filterBarButton, flexibleItem, self.reportBarButton, flexibleItem, self.statsBarButton]];
 
     // Location manager
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+
+    // Zoom buttons
+    [self.homeView.zoomInButton addTarget:self action:@selector(toggleZoom) forControlEvents:UIControlEventTouchUpInside];
+    [self.homeView.zoomOutButton addTarget:self action:@selector(toggleZoom) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -109,6 +128,19 @@
     return _menuBarButton;
 }
 
+- (UIBarButtonItem *)findBarButton {
+    if (_filterBarButton == nil) {
+        UIButton *findButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        findButton.frame = CGRectMake(0, 0, 66, 31);
+        [findButton addTarget:self action:@selector(findButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+        [findButton setImage:[UIImage imageNamed:@"find_btn"] forState:UIControlStateNormal];
+
+        _filterBarButton = [[UIBarButtonItem alloc] initWithCustomView:findButton];
+    }
+
+    return _filterBarButton;
+}
+
 #pragma mark - Bar Button Actions
 - (void)filterBarButtonTapped {
     NSLog(@"Button tapped");
@@ -131,8 +163,33 @@
     }
 }
 
+- (void)findButtonTapped {
+    NSLog(@"find button tapped");
+}
+
 - (void)reportButtonTapped {
     NSLog(@"Report button!");
+}
+
+- (void)statsButtonTapped {
+    NSLog(@"Stats button tapped");
+}
+
+- (void)toggleZoom {
+    NSLog(@"toggle Zoom");
+
+    if (self.zoomIn) {
+        self.zoomIn = NO;
+        [self.homeView.mapView setCenterCoordinate:self.currentUserCoordinate zoomLevel:14 animated:YES];
+        self.homeView.zoomInButton.hidden = YES;
+        self.homeView.zoomOutButton.hidden = NO;
+    }
+    else {
+        self.zoomIn = YES;
+        [self.homeView.mapView setCenterCoordinate:self.currentUserCoordinate zoomLevel:9 animated:YES];
+        self.homeView.zoomInButton.hidden = NO;
+        self.homeView.zoomOutButton.hidden = YES;
+    }
 }
 
 #pragma mark - API Calls
@@ -209,7 +266,9 @@
 #pragma mark - Location Manager
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
     [self.locationManager stopUpdatingLocation];
-    [self.homeView.mapView setCenterCoordinate:newLocation.coordinate zoomLevel:10 animated:YES];
+    self.currentUserCoordinate = newLocation.coordinate;
+
+    [self.homeView.mapView setCenterCoordinate:newLocation.coordinate zoomLevel:14 animated:YES];
     self.dynamicPointsUpdateEnabled = YES;
     [self loadPoints];
 }
